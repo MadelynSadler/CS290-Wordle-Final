@@ -1,0 +1,267 @@
+html {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: block;
+  margin: 0px;
+  padding: 0px;
+}
+
+body.dark {
+  background: black;
+  color: white;
+}
+
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(5, 50px); /* 5 columns */
+  grid-template-rows: repeat(6, 50px); /* 6 rows */
+  gap: 5px;
+  justify-content: center; /* Center the grid horizontally */
+  margin-top: 20px; /* Add some space at the top */
+}
+
+#title {
+  text-align: center; /* Center-align the text horizontally */
+  top: 0; /* Place it at the top of the screen */
+  left: 0; /* Center it horizontally */
+  right: 0; /* Center it horizontally */
+}
+
+#title-text {
+  margin: 0px;
+}
+
+.letter {
+  border: 2px solid black;
+  text-align: center;
+  line-height: 50px; /* Centers text vertically */
+  font-size: 22px;
+  font-family: "Poppins";
+  font-weight: 700; /* Makes letters bold */
+}
+
+#virtual-keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  user-select: none; /* Prevents text selection */
+}
+
+.key-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.key {
+  font-family: "Poppins";
+  width: 35px;
+  height: 35px;
+  margin: 2px;
+  border: 1px solid #444;
+  background-color: #eee;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 4px #999; /* Adds depth to the keys */
+  transition: all 0.3s; /* Smooth transition for interactions */
+}
+
+.key:hover {
+  background-color: #d9d8d8; /* Slightly darker when hovered */
+}
+
+.key:active {
+  box-shadow: 0 2px #666; /* Changes the shadow to give a pressed effect */
+  transform: translateY(2px); /* Moves the button down when pressed */
+}
+
+/* Special keys like Enter and Backspace can have different styles */
+#enter,
+#backspace {
+  width: 60px; /* Wider than letter keys */
+  background-color: #ccc; /* Different color for differentiation */
+}
+
+#enter {
+  font-size: 12px;
+  font-family: "Poppins";
+}
+
+.correct {
+  background-color: #6aaa64 !important;
+}
+
+.present {
+  background-color: #c9b458 !important;
+}
+
+.absent {
+  background-color: #787c7e !important;
+}
+
+#button {
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+}
+
+/* Modal Content */
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.modal-content > p {
+  margin-top: 0px;
+}
+
+.modal-content > button {
+  margin-top: -20px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.restartButton {
+  font-family: "Poppins";
+  background: #eee;
+
+  border-radius: 6px;
+  border: 1px solid #444;
+  padding: 5px 10px;
+
+  align-self: end;
+
+  cursor: pointer;
+}
+
+/* Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@keyframes flip {
+  0% {
+    transform: perspective(400px) rotatex(0deg);
+  }
+  50% {
+    transform: perspective(400px) rotatex(90deg);
+    /* background-color: transparent; */
+  }
+  100% {
+    transform: perspective(400px) rotatex(0deg);
+    /* background-color: transparent; */
+  }
+}
+
+/* Apply flip animation to letter cells */
+.letter.animate-flip {
+  animation: flip 1s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+/* DARK MODE */
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 10px;
+  margin: 5px 0px 0px 0px;
+}
+
+.settings-button {
+  background: white;
+  color: black;
+  font-size: 12px;
+  font-family: "Poppins";
+
+  border-radius: 12px;
+  border: 1px solid black;
+  padding: 5px 15px;
+  margin: 0px;
+
+  cursor: pointer;
+}
+
+body.dark .settings-button {
+  background: black;
+  color: white;
+  border: 1px solid white;
+}
+
+body.dark .letter {
+  border: 2px solid #4e4e51;
+}
+
+body.dark .key {
+  background-color: #444;
+  color: white;
+  box-shadow: 0 4px #626262;
+}
+
+body.dark .key:hover {
+  background-color: #7d7d7d; /* Slightly darker when hovered */
+}
+
+body.dark #enter,
+body.dark #backspace {
+  background-color: #6d6d6d;
+}
+
+body.dark .modal-content {
+  background-color: #4e4e51;
+}
+
+/* GUESSED */
+.letter.guessed {
+  border: 2px solid transparent !important;
+  color: white;
+}
+
+.key.guessed {
+  color: white;
+}

@@ -1,0 +1,107 @@
+<!-- Game Board -->
+<div id="game-board">
+  <!-- 5x6 grid -->
+  <!-- Each row contains 5 divs for letters -->
+  <!-- 6 rows for 6 attempts -->
+  <!--row 1 -->
+  <div class="letter" id="r1c1"></div>
+  <div class="letter" id="r1c2"></div>
+  <div class="letter" id="r1c3"></div>
+  <div class="letter" id="r1c4"></div>
+  <div class="letter" id="r1c5"></div>
+  <!--row 2 -->
+  <div class="letter" id="r2c1"></div>
+  <div class="letter" id="r2c2"></div>
+  <div class="letter" id="r2c3"></div>
+  <div class="letter" id="r2c4"></div>
+  <div class="letter" id="r2c5"></div>
+  <!--row 3 -->
+  <div class="letter" id="r3c1"></div>
+  <div class="letter" id="r3c2"></div>
+  <div class="letter" id="r3c3"></div>
+  <div class="letter" id="r3c4"></div>
+  <div class="letter" id="r3c5"></div>
+  <!--row 4 -->
+  <div class="letter" id="r4c1"></div>
+  <div class="letter" id="r4c2"></div>
+  <div class="letter" id="r4c3"></div>
+  <div class="letter" id="r4c4"></div>
+  <div class="letter" id="r4c5"></div>
+  <!--row 5 -->
+  <div class="letter" id="r5c1"></div>
+  <div class="letter" id="r5c2"></div>
+  <div class="letter" id="r5c3"></div>
+  <div class="letter" id="r5c4"></div>
+  <div class="letter" id="r5c5"></div>
+  <!--row 6 -->
+  <div class="letter" id="r6c1"></div>
+  <div class="letter" id="r6c2"></div>
+  <div class="letter" id="r6c3"></div>
+  <div class="letter" id="r6c4"></div>
+  <div class="letter" id="r6c5"></div>
+
+</div>
+
+<!-- Virtual Keyboard -->
+<div id="virtual-keyboard">
+  <div class="key-row">
+    <button class="key letter-key" id="q">Q</button>
+    <button class="key letter-key" id="w">W</button>
+    <button class="key letter-key" id="e">E</button>
+    <button class="key letter-key" id="r">R</button>
+    <button class="key letter-key" id="t">T</button>
+    <button class="key letter-key" id="y">Y</button>
+    <button class="key letter-key" id="u">U</button>
+    <button class="key letter-key" id="i">I</button>
+    <button class="key letter-key" id="o">O</button>
+    <button class="key letter-key" id="p">P</button>
+  </div>
+  <div class="key-row">
+    <button class="key letter-key" id="a">A</button>
+    <button class="key letter-key" id="s">S</button>
+    <button class="key letter-key" id="d">D</button>
+    <button class="key letter-key" id="f">F</button>
+    <button class="key letter-key" id="g">G</button>
+    <button class="key letter-key" id="h">H</button>
+    <button class="key letter-key" id="j">J</button>
+    <button class="key letter-key" id="k">K</button>
+    <button class="key letter-key" id="l">L</button>
+  </div>
+  <div class="key-row">
+    <button class="key letter-key" id="z">Z</button>
+    <button class="key letter-key" id="x">X</button>
+    <button class="key letter-key" id="c">C</button>
+    <button class="key letter-key" id="v">V</button>
+    <button class="key letter-key" id="b">B</button>
+    <button class="key letter-key" id="n">N</button>
+    <button class="key letter-key" id="m">M</button>
+    <button class="key" id="backspace">⌫</button>
+    <button class="key" id="enter">ENTER</button>
+  </div>
+</div>
+
+<!-- Winning Modal -->
+<div id="winningModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Congratulations!</h2>
+      <span id="closeWinningModal" class="close">&times;</span>
+    </div>
+    <p>You have successfully completed the game.</p>
+    <p id="dynamicTotalWins">Total Wins: {{wins}}</p>
+    <button id="restartWinningButton" class="restartButton">Restart</button>
+  </div>
+</div>
+
+<!-- Losing Modal -->
+<div id="losingModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Game Over!</h2>
+      <span id="closeLosingModal" class="close">&times;</span>
+    </div>
+    <p id="dynamicWordleWord">The correct word was: {{correctWord}}</p>
+    <p id="dynamicTotalLosses">Number of losses: {{numberOfLosses}}</p>
+    <button id="restartLosingButton" class="restartButton">Restart</button>
+  </div>
+</div>
